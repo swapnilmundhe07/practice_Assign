@@ -5,7 +5,7 @@ from google.cloud import storage
 client = storage.Client(project ='big-genre-504205-j0' )
 
 bucket = client.create_bucket(
-    "brijesh-bucket-2",
+    "swapnil-bucket-2",
     location="US-EAST1"
 )
 
