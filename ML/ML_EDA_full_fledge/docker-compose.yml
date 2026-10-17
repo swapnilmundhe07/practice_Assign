@@ -1,0 +1,30 @@
+services:
+
+  loan-default-api:
+    image: vikas61000/ml-eda-full-fledge:${IMAGE_TAG:-latest}
+    container_name: loan-default-api
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    command:
+      - uvicorn
+      - src.api:app
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8000"
+
+  streamlit:
+    image: vikas61000/ml-eda-full-fledge:${IMAGE_TAG:-latest}
+    container_name: loan-default-streamlit
+    ports:
+      - "8501:8501"
+    restart: unless-stopped
+    depends_on:
+      - loan-default-api
+    command:
+      - streamlit
+      - run
+      - app.py
+      - --server.address=0.0.0.0
+      - --server.port=8501
