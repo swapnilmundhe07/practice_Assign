@@ -4,8 +4,8 @@ from google.cloud import storage
 
 client = storage.Client(project ='big-genre-504205-j0')
 
-sources_bucket = client.bucket("brijesh-bucket-1")
-dest_bucket = client.bucket("brijesh-bucket-2")
+sources_bucket = client.bucket("swapnil-bucket-1")
+dest_bucket = client.bucket("swapnil-bucket-2")
 
 blob = sources_bucket.blob("new_doc.txt")
 
